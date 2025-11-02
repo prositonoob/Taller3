@@ -66,6 +66,7 @@ Crea un nuevo usuario.
 **Body requerido:**
 ```json
 {
+  "id":"0",
   "nombre": "Juan",
   "apellido": "Pérez",
   "telefono": "+57 300 123 4567",
