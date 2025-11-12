@@ -1,4 +1,5 @@
 import express from 'express';
+import pool from "./db.js";
 
 const app = express();
 const port = 3000;
@@ -17,6 +18,18 @@ function generateId(): string {
 function validateCreateUser(data: any): boolean {
   return data.nombre && data.apellido && data.telefono && data.email && typeof data.edad === 'number';
 }
+
+// Conexión a la base de datos (Neon)
+async function testDB() {
+  try {
+    const result = await pool.query("SELECT NOW()");
+    console.log("✅ Conectado a Neon:", result.rows[0]);
+  } catch (err) {
+    console.error("❌ Error de conexión a Neon:", err);
+  }
+}
+
+testDB();
 
 // Routes
 
